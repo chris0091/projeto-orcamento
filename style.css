@@ -1,0 +1,33 @@
+body {
+	background-color: #111111; 
+	color: #ffffff;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		max-width: 500px;
+	}
+	input, textarea {
+		padding: 12px;
+		border: 1px solid #555555;
+		border-radius: 8px;
+		background-color: #242424;
+		color: #ffffff;
+	}
+
+	button {
+		background-color: #b6ff3b;
+		color: #111111;
+		border: none;
+		border-radius: 8px;
+		padding: 14px;
+		font-weight: bold;
+		cursor: pointer;		
+	}
+
+	button :hover {
+		background-color: #9ae32b;
+		transition: background-color 0.2s ease;
+	}
