@@ -1,0 +1,10 @@
+# Arquivos de configuracao privada
+.env
+.env.local
+
+# Dependencias do Node.js
+node_modules/
+
+# Arquivos temporarios
+*.tmp
+*.log
