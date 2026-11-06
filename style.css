@@ -37,8 +37,14 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #95df20;
+button:not(:disabled):hover {
+    background-color: #95df20;
+}
+
+button:disabled {
+    background-color: #666666;
+    color: #cccccc;
+    cursor: not-allowed;
 }
 
 input:focus,
