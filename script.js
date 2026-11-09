@@ -1,6 +1,10 @@
-console.log("Projeto final iniciado!");
+const formulario = document.getElementById("form-orcamento");
 
-const formulario = document.querySelector("#form-orcamento");
+const botaoEnviar = document.getElementById("btn-enviar");
+
+botaoEnviar.disabled = !formulario.checkValidity();
+
+console.log("Projeto final iniciado!");
 
 console.log(formulario);
 
@@ -24,4 +28,16 @@ console.log("Email do cliente:", email);
 console.log("Mensagem do cliente:", Mensagem);
 console.log("Formulário enviado com sucesso!");
 
-   });
+}); // Fim do evento submit
+
+const botaoLimpar = document.querySelector('button[type="reset"]');
+
+botaoLimpar.addEventListener("click", function () {
+    botaoEnviar.disabled = true;
+    
+});
+
+formulario.addEventListener("input", function () {
+    botaoEnviar.disabled = !formulario.checkValidity();
+});
+
