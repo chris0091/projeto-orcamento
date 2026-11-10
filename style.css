@@ -52,3 +52,17 @@ textarea:focus {
   outline: 2px solid #b3ff39;
   outline-offset: 2px;
 }
+
+#aviso-formulario {
+    color: #cccccc;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+#confirmacao {
+    color: #b6ff3b;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 16px;
+}

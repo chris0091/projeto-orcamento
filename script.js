@@ -2,6 +2,10 @@ const formulario = document.getElementById("form-orcamento");
 
 const botaoEnviar = document.getElementById("btn-enviar");
 
+const avisoFormulario = document.getElementById("aviso-formulario");
+
+const confirmacao = document.querySelector("#confirmacao");
+
 botaoEnviar.disabled = !formulario.checkValidity();
 
 console.log("Projeto final iniciado!");
@@ -17,11 +21,12 @@ formulario.addEventListener("submit", (evento) => {
 
     const Mensagem = document.querySelector("#mensagem").value;
 
-    const confirmacao = document.querySelector("#confirmacao");
-
 confirmacao.hidden = false;
 
 formulario.reset();
+
+botaoEnviar.disabled = true;
+avisoFormulario.hidden = false;
 
 console.log("Nome do cliente:", nome);
 console.log("Email do cliente:", email);
@@ -34,10 +39,17 @@ const botaoLimpar = document.querySelector('button[type="reset"]');
 
 botaoLimpar.addEventListener("click", function () {
     botaoEnviar.disabled = true;
+    avisoFormulario.hidden = false;
+    confirmacao.hidden = true;
     
 });
 
 formulario.addEventListener("input", function () {
-    botaoEnviar.disabled = !formulario.checkValidity();
-});
+    const formularioValido = formulario.checkValidity();
 
+    botaoEnviar.disabled = !formularioValido;
+
+    avisoFormulario.hidden = formularioValido;
+
+    confirmacao.hidden = true;
+});
