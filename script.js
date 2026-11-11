@@ -6,7 +6,13 @@ const avisoFormulario = document.getElementById("aviso-formulario");
 
 const confirmacao = document.querySelector("#confirmacao");
 
-botaoEnviar.disabled = !formulario.checkValidity();
+function atualizarBotaoEnviar() {
+    const formularioValido = formulario.checkValidity();
+
+    botaoEnviar.disabled = !formularioValido;
+}
+
+atualizarBotaoEnviar();
 
 console.log("Projeto final iniciado!");
 
@@ -21,12 +27,14 @@ formulario.addEventListener("submit", (evento) => {
 
     const Mensagem = document.querySelector("#mensagem").value;
 
-confirmacao.hidden = false;
 
 formulario.reset();
 
-botaoEnviar.disabled = true;
-avisoFormulario.hidden = false;
+confirmacao.hidden = false;
+
+atualizarBotaoEnviar();
+
+avisoFormulario.hidden = true;
 
 console.log("Nome do cliente:", nome);
 console.log("Email do cliente:", email);
@@ -37,19 +45,24 @@ console.log("Formulário enviado com sucesso!");
 
 const botaoLimpar = document.querySelector('button[type="reset"]');
 
-botaoLimpar.addEventListener("click", function () {
+formulario.addEventListener("reset", function () {
     botaoEnviar.disabled = true;
     avisoFormulario.hidden = false;
     confirmacao.hidden = true;
-    
 });
 
 formulario.addEventListener("input", function () {
     const formularioValido = formulario.checkValidity();
 
-    botaoEnviar.disabled = !formularioValido;
+    atualizarBotaoEnviar();
 
     avisoFormulario.hidden = formularioValido;
 
     confirmacao.hidden = true;
 });
+
+function saudacaoDev() {
+    console.log("Estou aprendendo funções reutilizáveis!");
+}
+
+saudacaoDev();
